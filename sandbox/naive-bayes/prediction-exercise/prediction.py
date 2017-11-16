@@ -1,18 +1,20 @@
+#!/usr/bin/env python
+
 from classifier import GNB
 import json
 
 def main():
-	gnb = GNB
-
+	gnb = GNB()
 	with open('train.json', 'rb') as f:
 		j = json.load(f)
 	print j.keys()
 	X = j['states']
 	Y = j['labels']
-	gnb.train(X, Y)f
+	gnb.train(X, Y)
 
 	with open('test.json', 'rb') as f:
 		j = json.load(f)
+
 	X = j['states']
 	Y = j['labels']
 	score = 0
