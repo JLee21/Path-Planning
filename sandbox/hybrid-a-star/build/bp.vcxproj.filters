@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\src\hybrid_breadth_first.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{C43E4D00-74FD-3C30-8FEC-47B139066AB5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

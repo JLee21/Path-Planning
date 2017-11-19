@@ -1,8 +1,8 @@
-# Install script for directory: /Users/topher/sdc/CarND-Path-Planning-Project/sandbox/behavior-planning
+# Install script for directory: C:/Users/avion105/Documents/sdc/Path-Planning/sandbox/behavior-planning
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/usr/local")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/behavior-planning")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "")
+    set(CMAKE_INSTALL_CONFIG_NAME "Release")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/topher/sdc/CarND-Path-Planning-Project/sandbox/behavior-planning/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/avion105/Documents/sdc/Path-Planning/sandbox/behavior-planning/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

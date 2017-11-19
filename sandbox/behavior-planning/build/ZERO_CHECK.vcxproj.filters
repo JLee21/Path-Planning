@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\behavior-planning\build\CMakeFiles\31660dd1f6559c9d91eedeb9ae2b53ef\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{3D4742D1-4AFA-34D2-BCBD-A17B3C944BED}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

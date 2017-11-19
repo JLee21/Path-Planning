@@ -1,1 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/c++   -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/bp.dir/src/main.cpp.o CMakeFiles/bp.dir/src/road.cpp.o CMakeFiles/bp.dir/src/vehicle.cpp.o  -o bp 
