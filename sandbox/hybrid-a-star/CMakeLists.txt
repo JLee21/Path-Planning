@@ -1,4 +1,4 @@
-project(hybrida-a-star)
+project(hybrid-a-star)
 
 cmake_minimum_required (VERSION 3.5)
 
@@ -8,4 +8,4 @@ set(sources
     src/main.cpp
     src/hybrid_breadth_first.cpp)
 
-add_executable(bp ${sources})
+add_executable(hybrid ${sources})

@@ -1,287 +1,266 @@
-The system is: Windows - 6.3.9600 - AMD64
+The system is: Darwin - 16.7.0 - x86_64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
-Compiler:  
+Compiler: /Library/Developer/CommandLineTools/usr/bin/cc 
 Build flags: 
 Id flags:  
 
 The output was:
 0
-Microsoft (R) Build Engine version 14.0.25420.1
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 11/18/2017 5:46:23 PM.
-Project "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\3.8.0\CompilerIdC\CompilerIdC.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "Debug\".
-  Creating directory "Debug\CompilerIdC.tlog\".
-InitializeBuildStatus:
-  Creating "Debug\CompilerIdC.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /nologo /W0 /WX- /Od /Oy- /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue CMakeCCompilerId.c
-  CMakeCCompilerId.c
-Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:".\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\CompilerIdC.lib" /MACHINE:X86 /SAFESEH Debug\CMakeCCompilerId.obj
-  CompilerIdC.vcxproj -> C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\3.8.0\CompilerIdC\.\CompilerIdC.exe
-PostBuildEvent:
-  for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
-  :VCEnd
-  CMAKE_C_COMPILER=C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\cl.exe
-FinalizeBuildStatus:
-  Deleting file "Debug\CompilerIdC.tlog\unsuccessfulbuild".
-  Touching "Debug\CompilerIdC.tlog\CompilerIdC.lastbuildstate".
-Done Building Project "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\3.8.0\CompilerIdC\CompilerIdC.vcxproj" (default targets).
-
-Build succeeded.
-    0 Warning(s)
-    0 Error(s)
-
-Time Elapsed 00:00:01.02
 
 
-Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
-
-The C compiler identification is MSVC, found in "C:/Users/avion105/Documents/sdc/Path-Planning/sandbox/hybrid-a-star/build/CMakeFiles/3.8.0/CompilerIdC/CompilerIdC.exe"
+The C compiler identification is AppleClang, found in "/Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/3.9.0/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-Compiler:  
+Compiler: /Library/Developer/CommandLineTools/usr/bin/c++ 
 Build flags: 
 Id flags:  
 
 The output was:
 0
-Microsoft (R) Build Engine version 14.0.25420.1
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 11/18/2017 5:46:24 PM.
-Project "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\3.8.0\CompilerIdCXX\CompilerIdCXX.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "Debug\".
-  Creating directory "Debug\CompilerIdCXX.tlog\".
-InitializeBuildStatus:
-  Creating "Debug\CompilerIdCXX.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /nologo /W0 /WX- /Od /Oy- /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue CMakeCXXCompilerId.cpp
-  CMakeCXXCompilerId.cpp
-Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:".\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\CompilerIdCXX.lib" /MACHINE:X86 /SAFESEH Debug\CMakeCXXCompilerId.obj
-  CompilerIdCXX.vcxproj -> C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\3.8.0\CompilerIdCXX\.\CompilerIdCXX.exe
-PostBuildEvent:
-  for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
-  :VCEnd
-  CMAKE_CXX_COMPILER=C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\cl.exe
-FinalizeBuildStatus:
-  Deleting file "Debug\CompilerIdCXX.tlog\unsuccessfulbuild".
-  Touching "Debug\CompilerIdCXX.tlog\CompilerIdCXX.lastbuildstate".
-Done Building Project "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\3.8.0\CompilerIdCXX\CompilerIdCXX.vcxproj" (default targets).
-
-Build succeeded.
-    0 Warning(s)
-    0 Error(s)
-
-Time Elapsed 00:00:00.69
 
 
-Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
-
-The CXX compiler identification is MSVC, found in "C:/Users/avion105/Documents/sdc/Path-Planning/sandbox/hybrid-a-star/build/CMakeFiles/3.8.0/CompilerIdCXX/CompilerIdCXX.exe"
+The CXX compiler identification is AppleClang, found in "/Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/3.9.0/CompilerIdCXX/a.out"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: C:/Users/avion105/Documents/sdc/Path-Planning/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp
+Change Dir: /Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_0842e.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
-Microsoft (R) Build Engine version 14.0.25420.1
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 11/18/2017 5:46:25 PM.
-Project "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\cmTC_0842e.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "cmTC_0842e.dir\Debug\".
-  Creating directory "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_0842e.dir\Debug\cmTC_0842e.tlog\".
-InitializeBuildStatus:
-  Creating "cmTC_0842e.dir\Debug\cmTC_0842e.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0842e.dir\Debug\\" /Fd"cmTC_0842e.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\testCCompiler.c"
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.24210 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  testCCompiler.c
-  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0842e.dir\Debug\\" /Fd"cmTC_0842e.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\testCCompiler.c"
-  
-Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\Debug\cmTC_0842e.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/avion105/Documents/sdc/Path-Planning/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp/Debug/cmTC_0842e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/avion105/Documents/sdc/Path-Planning/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp/Debug/cmTC_0842e.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_0842e.dir\Debug\testCCompiler.obj
-  cmTC_0842e.vcxproj -> C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\Debug\cmTC_0842e.exe
-FinalizeBuildStatus:
-  Deleting file "cmTC_0842e.dir\Debug\cmTC_0842e.tlog\unsuccessfulbuild".
-  Touching "cmTC_0842e.dir\Debug\cmTC_0842e.tlog\cmTC_0842e.lastbuildstate".
-Done Building Project "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\cmTC_0842e.vcxproj" (default targets).
-
-Build succeeded.
-    0 Warning(s)
-    0 Error(s)
-
-Time Elapsed 00:00:00.91
+Run Build Command:"/usr/bin/make" "cmTC_5b240/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_5b240.dir/build.make CMakeFiles/cmTC_5b240.dir/build
+Building C object CMakeFiles/cmTC_5b240.dir/testCCompiler.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc    -o CMakeFiles/cmTC_5b240.dir/testCCompiler.c.o   -c /Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_5b240
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5b240.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_5b240.dir/testCCompiler.c.o  -o cmTC_5b240 
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: C:/Users/avion105/Documents/sdc/Path-Planning/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp
+Change Dir: /Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_42c63.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
-Microsoft (R) Build Engine version 14.0.25420.1
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 11/18/2017 5:46:26 PM.
-Project "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\cmTC_42c63.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "cmTC_42c63.dir\Debug\".
-  Creating directory "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_42c63.dir\Debug\cmTC_42c63.tlog\".
-InitializeBuildStatus:
-  Creating "cmTC_42c63.dir\Debug\cmTC_42c63.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_42c63.dir\Debug\\" /Fd"cmTC_42c63.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.8\Modules\CMakeCCompilerABI.c"
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.24210 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  CMakeCCompilerABI.c
-  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_42c63.dir\Debug\\" /Fd"cmTC_42c63.dir\Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.8\Modules\CMakeCCompilerABI.c"
-  
-Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\Debug\cmTC_42c63.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/avion105/Documents/sdc/Path-Planning/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp/Debug/cmTC_42c63.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/avion105/Documents/sdc/Path-Planning/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp/Debug/cmTC_42c63.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_42c63.dir\Debug\CMakeCCompilerABI.obj
-  cmTC_42c63.vcxproj -> C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\Debug\cmTC_42c63.exe
-FinalizeBuildStatus:
-  Deleting file "cmTC_42c63.dir\Debug\cmTC_42c63.tlog\unsuccessfulbuild".
-  Touching "cmTC_42c63.dir\Debug\cmTC_42c63.tlog\cmTC_42c63.lastbuildstate".
-Done Building Project "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\cmTC_42c63.vcxproj" (default targets).
-
-Build succeeded.
-    0 Warning(s)
-    0 Error(s)
-
-Time Elapsed 00:00:00.65
+Run Build Command:"/usr/bin/make" "cmTC_c024e/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_c024e.dir/build.make CMakeFiles/cmTC_c024e.dir/build
+Building C object CMakeFiles/cmTC_c024e.dir/CMakeCCompilerABI.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc    -o CMakeFiles/cmTC_c024e.dir/CMakeCCompilerABI.c.o   -c /usr/local/Cellar/cmake/3.9.0/share/cmake/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_c024e
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c024e.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_c024e.dir/CMakeCCompilerABI.c.o  -o cmTC_c024e 
+Apple LLVM version 9.0.0 (clang-900.0.37)
+Target: x86_64-apple-darwin16.7.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -macosx_version_min 10.12.0 -o cmTC_c024e -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_c024e.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/lib/darwin/libclang_rt.osx.a
+@(#)PROGRAM:ld  PROJECT:ld64-302.3
+configured to support archs: armv6 armv7 armv7s arm64 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em (tvOS)
+Library search paths:
+	/usr/lib
+	/usr/local/lib
+Framework search paths:
+	/Library/Frameworks/
+	/System/Library/Frameworks/
 
 
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_c024e/fast"]
+  ignore line: [/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_c024e.dir/build.make CMakeFiles/cmTC_c024e.dir/build]
+  ignore line: [Building C object CMakeFiles/cmTC_c024e.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/Library/Developer/CommandLineTools/usr/bin/cc    -o CMakeFiles/cmTC_c024e.dir/CMakeCCompilerABI.c.o   -c /usr/local/Cellar/cmake/3.9.0/share/cmake/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_c024e]
+  ignore line: [/usr/local/Cellar/cmake/3.9.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c024e.dir/link.txt --verbose=1]
+  ignore line: [/Library/Developer/CommandLineTools/usr/bin/cc   -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_c024e.dir/CMakeCCompilerABI.c.o  -o cmTC_c024e ]
+  ignore line: [Apple LLVM version 9.0.0 (clang-900.0.37)]
+  ignore line: [Target: x86_64-apple-darwin16.7.0]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
+  link line: [ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -macosx_version_min 10.12.0 -o cmTC_c024e -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_c024e.dir/CMakeCCompilerABI.c.o -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/lib/darwin/libclang_rt.osx.a]
+    arg [/Library/Developer/CommandLineTools/usr/bin/ld] ==> ignore
+    arg [-demangle] ==> ignore
+    arg [-lto_library] ==> ignore, skip following value
+    arg [/Library/Developer/CommandLineTools/usr/lib/libLTO.dylib] ==> skip value of -lto_library
+    arg [-dynamic] ==> ignore
+    arg [-arch] ==> ignore
+    arg [x86_64] ==> ignore
+    arg [-macosx_version_min] ==> ignore
+    arg [10.12.0] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_c024e] ==> ignore
+    arg [-search_paths_first] ==> ignore
+    arg [-headerpad_max_install_names] ==> ignore
+    arg [-v] ==> ignore
+    arg [CMakeFiles/cmTC_c024e.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lSystem] ==> lib [System]
+    arg [/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/lib/darwin/libclang_rt.osx.a] ==> lib [/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/lib/darwin/libclang_rt.osx.a]
+  Library search paths: [;/usr/lib;/usr/local/lib]
+  Framework search paths: [;/Library/Frameworks/;/System/Library/Frameworks/]
+  remove lib [System]
+  remove lib [/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/lib/darwin/libclang_rt.osx.a]
+  collapse library dir [/usr/lib] ==> [/usr/lib]
+  collapse library dir [/usr/local/lib] ==> [/usr/local/lib]
+  collapse framework dir [/Library/Frameworks/] ==> [/Library/Frameworks]
+  collapse framework dir [/System/Library/Frameworks/] ==> [/System/Library/Frameworks]
+  implicit libs: []
+  implicit dirs: [/usr/lib;/usr/local/lib]
+  implicit fwks: [/Library/Frameworks;/System/Library/Frameworks]
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_82a87/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_82a87.dir/build.make CMakeFiles/cmTC_82a87.dir/build
+Building C object CMakeFiles/cmTC_82a87.dir/feature_tests.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_82a87.dir/feature_tests.c.o   -c /Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_82a87
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_82a87.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_82a87.dir/feature_tests.c.o  -o cmTC_82a87 
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b98ec/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_b98ec.dir/build.make CMakeFiles/cmTC_b98ec.dir/build
+Building C object CMakeFiles/cmTC_b98ec.dir/feature_tests.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_b98ec.dir/feature_tests.c.o   -c /Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_b98ec
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b98ec.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_b98ec.dir/feature_tests.c.o  -o cmTC_b98ec 
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4fa83/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_4fa83.dir/build.make CMakeFiles/cmTC_4fa83.dir/build
+Building C object CMakeFiles/cmTC_4fa83.dir/feature_tests.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_4fa83.dir/feature_tests.c.o   -c /Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_4fa83
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4fa83.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/cc   -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_4fa83.dir/feature_tests.c.o  -o cmTC_4fa83 
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
 Determining if the CXX compiler works passed with the following output:
-Change Dir: C:/Users/avion105/Documents/sdc/Path-Planning/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp
+Change Dir: /Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_656bb.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
-Microsoft (R) Build Engine version 14.0.25420.1
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 11/18/2017 5:46:27 PM.
-Project "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\cmTC_656bb.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "cmTC_656bb.dir\Debug\".
-  Creating directory "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_656bb.dir\Debug\cmTC_656bb.tlog\".
-InitializeBuildStatus:
-  Creating "cmTC_656bb.dir\Debug\cmTC_656bb.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_656bb.dir\Debug\\" /Fd"cmTC_656bb.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx"
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.24210 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  testCXXCompiler.cxx
-  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_656bb.dir\Debug\\" /Fd"cmTC_656bb.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx"
-  
-Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\Debug\cmTC_656bb.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/avion105/Documents/sdc/Path-Planning/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp/Debug/cmTC_656bb.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/avion105/Documents/sdc/Path-Planning/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp/Debug/cmTC_656bb.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_656bb.dir\Debug\testCXXCompiler.obj
-  cmTC_656bb.vcxproj -> C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\Debug\cmTC_656bb.exe
-FinalizeBuildStatus:
-  Deleting file "cmTC_656bb.dir\Debug\cmTC_656bb.tlog\unsuccessfulbuild".
-  Touching "cmTC_656bb.dir\Debug\cmTC_656bb.tlog\cmTC_656bb.lastbuildstate".
-Done Building Project "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\cmTC_656bb.vcxproj" (default targets).
-
-Build succeeded.
-    0 Warning(s)
-    0 Error(s)
-
-Time Elapsed 00:00:00.65
+Run Build Command:"/usr/bin/make" "cmTC_adf12/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_adf12.dir/build.make CMakeFiles/cmTC_adf12.dir/build
+Building CXX object CMakeFiles/cmTC_adf12.dir/testCXXCompiler.cxx.o
+/Library/Developer/CommandLineTools/usr/bin/c++     -o CMakeFiles/cmTC_adf12.dir/testCXXCompiler.cxx.o -c /Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_adf12
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_adf12.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_adf12.dir/testCXXCompiler.cxx.o  -o cmTC_adf12 
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: C:/Users/avion105/Documents/sdc/Path-Planning/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp
+Change Dir: /Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_a2431.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
-Microsoft (R) Build Engine version 14.0.25420.1
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 11/18/2017 5:46:28 PM.
-Project "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\cmTC_a2431.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "cmTC_a2431.dir\Debug\".
-  Creating directory "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_a2431.dir\Debug\cmTC_a2431.tlog\".
-InitializeBuildStatus:
-  Creating "cmTC_a2431.dir\Debug\cmTC_a2431.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_a2431.dir\Debug\\" /Fd"cmTC_a2431.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.8\Modules\CMakeCXXCompilerABI.cpp"
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.24210 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  CMakeCXXCompilerABI.cpp
-  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_a2431.dir\Debug\\" /Fd"cmTC_a2431.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Program Files\CMake\share\cmake-3.8\Modules\CMakeCXXCompilerABI.cpp"
-  
-Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\Debug\cmTC_a2431.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/avion105/Documents/sdc/Path-Planning/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp/Debug/cmTC_a2431.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/avion105/Documents/sdc/Path-Planning/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp/Debug/cmTC_a2431.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_a2431.dir\Debug\CMakeCXXCompilerABI.obj
-  cmTC_a2431.vcxproj -> C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\Debug\cmTC_a2431.exe
-FinalizeBuildStatus:
-  Deleting file "cmTC_a2431.dir\Debug\cmTC_a2431.tlog\unsuccessfulbuild".
-  Touching "cmTC_a2431.dir\Debug\cmTC_a2431.tlog\cmTC_a2431.lastbuildstate".
-Done Building Project "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\cmTC_a2431.vcxproj" (default targets).
-
-Build succeeded.
-    0 Warning(s)
-    0 Error(s)
-
-Time Elapsed 00:00:00.66
+Run Build Command:"/usr/bin/make" "cmTC_a31c8/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_a31c8.dir/build.make CMakeFiles/cmTC_a31c8.dir/build
+Building CXX object CMakeFiles/cmTC_a31c8.dir/CMakeCXXCompilerABI.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++     -o CMakeFiles/cmTC_a31c8.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/Cellar/cmake/3.9.0/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_a31c8
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a31c8.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_a31c8.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_a31c8 
+Apple LLVM version 9.0.0 (clang-900.0.37)
+Target: x86_64-apple-darwin16.7.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -macosx_version_min 10.12.0 -o cmTC_a31c8 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_a31c8.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/lib/darwin/libclang_rt.osx.a
+@(#)PROGRAM:ld  PROJECT:ld64-302.3
+configured to support archs: armv6 armv7 armv7s arm64 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em (tvOS)
+Library search paths:
+	/usr/lib
+	/usr/local/lib
+Framework search paths:
+	/Library/Frameworks/
+	/System/Library/Frameworks/
 
 
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_a31c8/fast"]
+  ignore line: [/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_a31c8.dir/build.make CMakeFiles/cmTC_a31c8.dir/build]
+  ignore line: [Building CXX object CMakeFiles/cmTC_a31c8.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/Library/Developer/CommandLineTools/usr/bin/c++     -o CMakeFiles/cmTC_a31c8.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/Cellar/cmake/3.9.0/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_a31c8]
+  ignore line: [/usr/local/Cellar/cmake/3.9.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a31c8.dir/link.txt --verbose=1]
+  ignore line: [/Library/Developer/CommandLineTools/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -v -Wl,-v CMakeFiles/cmTC_a31c8.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_a31c8 ]
+  ignore line: [Apple LLVM version 9.0.0 (clang-900.0.37)]
+  ignore line: [Target: x86_64-apple-darwin16.7.0]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /Library/Developer/CommandLineTools/usr/bin]
+  link line: [ "/Library/Developer/CommandLineTools/usr/bin/ld" -demangle -lto_library /Library/Developer/CommandLineTools/usr/lib/libLTO.dylib -dynamic -arch x86_64 -macosx_version_min 10.12.0 -o cmTC_a31c8 -search_paths_first -headerpad_max_install_names -v CMakeFiles/cmTC_a31c8.dir/CMakeCXXCompilerABI.cpp.o -lc++ -lSystem /Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/lib/darwin/libclang_rt.osx.a]
+    arg [/Library/Developer/CommandLineTools/usr/bin/ld] ==> ignore
+    arg [-demangle] ==> ignore
+    arg [-lto_library] ==> ignore, skip following value
+    arg [/Library/Developer/CommandLineTools/usr/lib/libLTO.dylib] ==> skip value of -lto_library
+    arg [-dynamic] ==> ignore
+    arg [-arch] ==> ignore
+    arg [x86_64] ==> ignore
+    arg [-macosx_version_min] ==> ignore
+    arg [10.12.0] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_a31c8] ==> ignore
+    arg [-search_paths_first] ==> ignore
+    arg [-headerpad_max_install_names] ==> ignore
+    arg [-v] ==> ignore
+    arg [CMakeFiles/cmTC_a31c8.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lc++] ==> lib [c++]
+    arg [-lSystem] ==> lib [System]
+    arg [/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/lib/darwin/libclang_rt.osx.a] ==> lib [/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/lib/darwin/libclang_rt.osx.a]
+  Library search paths: [;/usr/lib;/usr/local/lib]
+  Framework search paths: [;/Library/Frameworks/;/System/Library/Frameworks/]
+  remove lib [System]
+  remove lib [/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/lib/darwin/libclang_rt.osx.a]
+  collapse library dir [/usr/lib] ==> [/usr/lib]
+  collapse library dir [/usr/local/lib] ==> [/usr/local/lib]
+  collapse framework dir [/Library/Frameworks/] ==> [/Library/Frameworks]
+  collapse framework dir [/System/Library/Frameworks/] ==> [/System/Library/Frameworks]
+  implicit libs: [c++]
+  implicit dirs: [/usr/lib;/usr/local/lib]
+  implicit fwks: [/Library/Frameworks;/System/Library/Frameworks]
 
 
-Detecting CXX [] compiler features compiled with the following output:
-Change Dir: C:/Users/avion105/Documents/sdc/Path-Planning/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp
-
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_f345c.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
-Microsoft (R) Build Engine version 14.0.25420.1
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-Build started 11/18/2017 5:46:29 PM.
-Project "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\cmTC_f345c.vcxproj" on node 1 (default targets).
-PrepareForBuild:
-  Creating directory "cmTC_f345c.dir\Debug\".
-  Creating directory "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_f345c.dir\Debug\cmTC_f345c.tlog\".
-InitializeBuildStatus:
-  Creating "cmTC_f345c.dir\Debug\cmTC_f345c.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_f345c.dir\Debug\\" /Fd"cmTC_f345c.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\feature_tests.cxx"
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.00.24210 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  feature_tests.cxx
-  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_f345c.dir\Debug\\" /Fd"cmTC_f345c.dir\Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\feature_tests.cxx"
-  
-Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\Debug\cmTC_f345c.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/avion105/Documents/sdc/Path-Planning/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp/Debug/cmTC_f345c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/avion105/Documents/sdc/Path-Planning/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp/Debug/cmTC_f345c.lib" /MACHINE:X86 /SAFESEH   /machine:X86 cmTC_f345c.dir\Debug\feature_tests.obj
-  cmTC_f345c.vcxproj -> C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\Debug\cmTC_f345c.exe
-FinalizeBuildStatus:
-  Deleting file "cmTC_f345c.dir\Debug\cmTC_f345c.tlog\unsuccessfulbuild".
-  Touching "cmTC_f345c.dir\Debug\cmTC_f345c.tlog\cmTC_f345c.lastbuildstate".
-Done Building Project "C:\Users\avion105\Documents\sdc\Path-Planning\sandbox\hybrid-a-star\build\CMakeFiles\CMakeTmp\cmTC_f345c.vcxproj" (default targets).
-
-Build succeeded.
-    0 Warning(s)
-    0 Error(s)
-
-Time Elapsed 00:00:00.68
 
 
-    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+Detecting CXX [-std=c++1z] compiler features compiled with the following output:
+Change Dir: /Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0bdab/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_0bdab.dir/build.make CMakeFiles/cmTC_0bdab.dir/build
+Building CXX object CMakeFiles/cmTC_0bdab.dir/feature_tests.cxx.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_0bdab.dir/feature_tests.cxx.o -c /Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_0bdab
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0bdab.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_0bdab.dir/feature_tests.cxx.o  -o cmTC_0bdab 
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
     Feature record: CXX_FEATURE:1cxx_alias_templates
     Feature record: CXX_FEATURE:1cxx_alignas
     Feature record: CXX_FEATURE:1cxx_alignof
@@ -293,6 +272,7 @@ Time Elapsed 00:00:00.68
     Feature record: CXX_FEATURE:1cxx_contextual_conversions
     Feature record: CXX_FEATURE:1cxx_decltype
     Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
     Feature record: CXX_FEATURE:1cxx_default_function_template_args
     Feature record: CXX_FEATURE:1cxx_defaulted_functions
     Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
@@ -320,6 +300,7 @@ Time Elapsed 00:00:00.68
     Feature record: CXX_FEATURE:1cxx_range_for
     Feature record: CXX_FEATURE:1cxx_raw_string_literals
     Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
     Feature record: CXX_FEATURE:1cxx_return_type_deduction
     Feature record: CXX_FEATURE:1cxx_right_angle_brackets
     Feature record: CXX_FEATURE:1cxx_rvalue_references
@@ -336,3 +317,216 @@ Time Elapsed 00:00:00.68
     Feature record: CXX_FEATURE:1cxx_variable_templates
     Feature record: CXX_FEATURE:1cxx_variadic_macros
     Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++14] compiler features compiled with the following output:
+Change Dir: /Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f810c/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_f810c.dir/build.make CMakeFiles/cmTC_f810c.dir/build
+Building CXX object CMakeFiles/cmTC_f810c.dir/feature_tests.cxx.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_f810c.dir/feature_tests.cxx.o -c /Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_f810c
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f810c.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_f810c.dir/feature_tests.cxx.o  -o cmTC_f810c 
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++11] compiler features compiled with the following output:
+Change Dir: /Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9cdc4/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_9cdc4.dir/build.make CMakeFiles/cmTC_9cdc4.dir/build
+Building CXX object CMakeFiles/cmTC_9cdc4.dir/feature_tests.cxx.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_9cdc4.dir/feature_tests.cxx.o -c /Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_9cdc4
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9cdc4.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_9cdc4.dir/feature_tests.cxx.o  -o cmTC_9cdc4 
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++98] compiler features compiled with the following output:
+Change Dir: /Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_06a8e/fast"
+/Library/Developer/CommandLineTools/usr/bin/make -f CMakeFiles/cmTC_06a8e.dir/build.make CMakeFiles/cmTC_06a8e.dir/build
+Building CXX object CMakeFiles/cmTC_06a8e.dir/feature_tests.cxx.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_06a8e.dir/feature_tests.cxx.o -c /Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_06a8e
+/usr/local/Cellar/cmake/3.9.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_06a8e.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTC_06a8e.dir/feature_tests.cxx.o  -o cmTC_06a8e 
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:0cxx_alias_templates
+    Feature record: CXX_FEATURE:0cxx_alignas
+    Feature record: CXX_FEATURE:0cxx_alignof
+    Feature record: CXX_FEATURE:0cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:0cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:0cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:0cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:0cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:0cxx_default_function_template_args
+    Feature record: CXX_FEATURE:0cxx_defaulted_functions
+    Feature record: CXX_FEATURE:0cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:0cxx_delegating_constructors
+    Feature record: CXX_FEATURE:0cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:0cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:0cxx_explicit_conversions
+    Feature record: CXX_FEATURE:0cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:0cxx_extern_templates
+    Feature record: CXX_FEATURE:0cxx_final
+    Feature record: CXX_FEATURE:0cxx_func_identifier
+    Feature record: CXX_FEATURE:0cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:0cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:0cxx_inline_namespaces
+    Feature record: CXX_FEATURE:0cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:0cxx_local_type_template_args
+    Feature record: CXX_FEATURE:0cxx_long_long_type
+    Feature record: CXX_FEATURE:0cxx_noexcept
+    Feature record: CXX_FEATURE:0cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:0cxx_nullptr
+    Feature record: CXX_FEATURE:0cxx_override
+    Feature record: CXX_FEATURE:0cxx_range_for
+    Feature record: CXX_FEATURE:0cxx_raw_string_literals
+    Feature record: CXX_FEATURE:0cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:0cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:0cxx_rvalue_references
+    Feature record: CXX_FEATURE:0cxx_sizeof_member
+    Feature record: CXX_FEATURE:0cxx_static_assert
+    Feature record: CXX_FEATURE:0cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:0cxx_thread_local
+    Feature record: CXX_FEATURE:0cxx_trailing_return_types
+    Feature record: CXX_FEATURE:0cxx_unicode_literals
+    Feature record: CXX_FEATURE:0cxx_uniform_initialization
+    Feature record: CXX_FEATURE:0cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:0cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:0cxx_variadic_macros
+    Feature record: CXX_FEATURE:0cxx_variadic_templates

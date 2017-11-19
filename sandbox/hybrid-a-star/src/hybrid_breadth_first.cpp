@@ -42,6 +42,7 @@ int HBF::idx(double float_num) {
 
 
 vector<HBF::maze_s> HBF::expand(HBF::maze_s state) {
+  // input a single state and return at least one possible new state
   int g = state.g;
   double x = state.x;
   double y = state.y;
@@ -55,10 +56,7 @@ vector<HBF::maze_s> HBF::expand(HBF::maze_s state) {
     double delta = M_PI / 180.0 * delta_i;
     double omega = SPEED / LENGTH * tan(delta);
     double theta2 = theta + omega;
-    if(theta2 > 0)
-    {
-    	theta2 += 2*M_PI;
-    }
+    if(theta2 > 0){ theta2 += 2*M_PI; }
     double x2 = x + SPEED * cos(theta2);
     double y2 = y + SPEED * sin(theta2);
     HBF::maze_s state2;
@@ -104,9 +102,21 @@ HBF::maze_path HBF::search(vector< vector<int> > grid, vector<double> start, vec
   into hybrid A* by adding heuristics appropriately.
   */
 
-  vector< vector< vector<maze_s> > > closed(NUM_THETA_CELLS, vector<vector<maze_s>>(grid[0].size(), vector<maze_s>(grid.size())));
-  vector< vector< vector<int> > > closed_value(NUM_THETA_CELLS, vector<vector<int>>(grid[0].size(), vector<int>(grid.size())));
-  vector< vector< vector<maze_s> > > came_from(NUM_THETA_CELLS, vector<vector<maze_s>>(grid[0].size(), vector<maze_s>(grid.size())));
+  vector< vector< vector<maze_s> > > closed(
+    NUM_THETA_CELLS,
+    vector<vector<maze_s>>(grid[0].size(),
+    vector<maze_s>(grid.size()))
+  );
+  vector< vector< vector<int> > > closed_value(
+    NUM_THETA_CELLS,
+    vector<vector<int>>(grid[0].size(),
+    vector<int>(grid.size()))
+  );
+  vector< vector< vector<maze_s> > > came_from(
+    NUM_THETA_CELLS,
+    vector<vector<maze_s>>(grid[0].size(),
+    vector<maze_s>(grid.size()))
+  );
   double theta = start[2];
   int stack = theta_to_stack_number(theta);
   int g = 0;
@@ -131,6 +141,7 @@ HBF::maze_path HBF::search(vector< vector<int> > grid, vector<double> start, vec
     int x = next.x;
     int y = next.y;
 
+    // G O A L  C H E C K
     if(idx(x) == goal[0] && idx(y) == goal[1])
     {
       cout << "found path to goal in " << total_closed << " expansions" << endl;
@@ -139,10 +150,13 @@ HBF::maze_path HBF::search(vector< vector<int> > grid, vector<double> start, vec
       path.came_from = came_from;
       path.final = next;
       return path;
-
     }
+
+    // E X P A N D
+    // return a vec of all next steps
     vector<maze_s> next_state = expand(next);
 
+    // V A L I D A T E
     for(int i = 0; i < next_state.size(); i++)
     {
       int g2 = next_state[i].g;
@@ -150,6 +164,7 @@ HBF::maze_path HBF::search(vector< vector<int> > grid, vector<double> start, vec
       double y2 = next_state[i].y;
       double theta2 = next_state[i].theta;
 
+      // if state is outside grid
       if((x2 < 0 || x2 >= grid.size()) || (y2 < 0 || y2 >= grid[0].size()))
       {
         //invalid cell

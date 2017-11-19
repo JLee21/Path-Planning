@@ -33,9 +33,8 @@ vector< vector<int> > MAZE = {
     {X,X,X,_,_,_,_,_,_,_,_,_,_,_,_,_,},
 };
 
-
+// to be passed to hbf.search
 vector< vector<int> > GRID = MAZE;
-
 vector<double> START = {0.0,0.0,0.0};
 vector<int> GOAL = {(int)GRID.size()-1, (int)GRID[0].size()-1};
 
@@ -59,7 +58,11 @@ int main() {
 
   HBF::maze_path get_path = hbf.search(GRID,START,GOAL);
 
-  vector<HBF::maze_s> show_path = hbf.reconstruct_path(get_path.came_from, START, get_path.final);
+  vector<HBF::maze_s> show_path = hbf.reconstruct_path(
+    get_path.came_from, 
+    START,
+    get_path.final
+  );
 
   cout << "show path from start to finish" << endl;
   for(int i = show_path.size()-1; i >= 0; i--)

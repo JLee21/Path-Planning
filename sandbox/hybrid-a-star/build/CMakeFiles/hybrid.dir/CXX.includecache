@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/src/hybrid_breadth_first.cpp
+iostream
+-
+sstream
+-
+fstream
+-
+math.h
+-
+vector
+-
+hybrid_breadth_first.h
+/Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/src/hybrid_breadth_first.h
+
+/Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/src/hybrid_breadth_first.h
+iostream
+-
+sstream
+-
+fstream
+-
+math.h
+-
+vector
+-
+
+/Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/src/main.cpp
+iostream
+-
+fstream
+-
+math.h
+-
+vector
+-
+hybrid_breadth_first.h
+/Users/topher/sdc/CarND-Path-Planning-Project/sandbox/hybrid-a-star/src/hybrid_breadth_first.h
+

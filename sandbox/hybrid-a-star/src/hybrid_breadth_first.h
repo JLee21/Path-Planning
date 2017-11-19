@@ -18,7 +18,7 @@ public:
 
 	struct maze_s {
 
-		int g;	// iteration
+		int g;
 		double x;
 		double y;
 		double theta;
@@ -46,13 +46,28 @@ public:
 
  	int theta_to_stack_number(double theta);
 
-  	int idx(double float_num);
+	int idx(double float_num);
 
-  	vector<maze_s> expand(maze_s state);
+	// input a single struct
+  // returns a vector of structs
+	vector<maze_s> expand(maze_s state);
 
-  	maze_path search(vector< vector<int> > grid, vector<double> start, vector<int> goal);
+  // :grid: the entire array aka grid
+  // :start: an array of doubles
+  // :goal: an array of ints
+  // :return: a struct
+	maze_path search(
+		vector< vector<int> > grid,
+		vector<double> start,
+		vector<int> goal
+	);
 
-  	vector<maze_s> reconstruct_path(vector< vector< vector<maze_s> > > came_from, vector<double> start, HBF::maze_s final);
+  //
+	vector<maze_s> reconstruct_path(
+		vector< vector< vector<maze_s> > > came_from,
+		vector<double> start,
+		HBF::maze_s final
+	);
 
 
 };
