@@ -100,7 +100,7 @@ int main() {
 	for(int i = 0; i < tc.size(); i++)
 	{
 		vector< double > jmt = JMT(tc[i].start, tc[i].end, tc[i].T);
-		bool correct = close_enough(jmt,answers[i]);
+		bool correct = close_enough(jmt, answers[i]);
 		total_correct &= correct;
 
 	}
