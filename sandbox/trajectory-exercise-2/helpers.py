@@ -4,10 +4,11 @@ from matplotlib import pyplot as plt
 class Vehicle(object):
     """
     Helper class. Non-ego vehicles move w/ constant acceleration
+    Provide the initial s and d values with `start`
     """
     def __init__(self, start):
         self.start_state = start
-    
+
     def state_in(self, t):
         s = self.start_state[:3]
         d = self.start_state[3:]
@@ -23,7 +24,7 @@ class Vehicle(object):
 
 def logistic(x):
     """
-    A function that returns a value between 0 and 1 for x in the 
+    A function that returns a value between 0 and 1 for x in the
     range [0, infinity] and -1 to 1 for x in the range [-infinity, infinity].
 
     Useful for cost functions.
@@ -37,7 +38,7 @@ def to_equation(coefficients):
     """
     def f(t):
         total = 0.0
-        for i, c in enumerate(coefficients): 
+        for i, c in enumerate(coefficients):
             total += c * t ** i
         return total
     return f
@@ -106,4 +107,3 @@ def get_f_and_N_derivatives(coeffs, N=3):
         coeffs = differentiate(coeffs)
         functions.append(to_equation(coeffs))
     return functions
-
