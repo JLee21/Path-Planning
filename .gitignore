@@ -35,3 +35,5 @@
 *.app
 
 __pycache__/
+.DS_Store/
+term3-sim-mac/
