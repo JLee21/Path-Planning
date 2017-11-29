@@ -12,6 +12,7 @@ class Road(object):
     self.speed_limit = speed_limit
     self.density = traffic_density
     self.camera_center = self.update_width / 2
+    # {"id": vehicle_object}
     self.vehicles = {}
     self.vehicles_added = 0
     self.goal_lane = None

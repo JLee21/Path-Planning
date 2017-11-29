@@ -29,6 +29,8 @@ def main():
 	    'max_acceleration': MAX_ACCEL
 	}
 	road.add_ego(2,0, ego_config)
+
+    # R U N  S I M U L A T O R
 	timestep = 0
 	while road.get_ego().s <= GOAL[0]:
 		timestep += 1

@@ -66,6 +66,7 @@ class Vehicle(object):
 
   def _get_next_state(self, predictions):
     states = ["KL", "LCL", "LCR", "PLCL", "PLCR"]
+    # if ego is in far left lane
     if  self.lane == 0:
       states.remove("LCL")
     if self.lane == (self.lanes_available -1):
@@ -184,11 +185,15 @@ class Vehicle(object):
   def _max_accel_for_lane(self, predictions, lane, s):
     delta_v_til_target = self.target_speed - self.v
     max_acc = min(self.max_acceleration, delta_v_til_target)
-    in_front = [v for (v_id, v) in predictions.items() if v[0]['lane'] == lane and v[0]['s'] > s ]
+    # get all cars in same lane and in front of you
+    in_front = [v for (v_id, v) in predictions.items() \
+        if v[0]['lane'] == lane and v[0]['s'] > s ]
     if len(in_front) > 0:
+      # find the closest car based on S
       leading = min(in_front, key=lambda v: v[0]['s'] - s)
       next_pos = leading[1]['s']
-      my_next = s + self.v
+      my_next = s + self.v # more like s + v*t
+      # get gap distance of chosen car and ego within same lane
       separation_next = next_pos - my_next
       available_room = separation_next - self.preferred_buffer
       max_acc = min(max_acc, available_room)
@@ -204,33 +209,46 @@ class Vehicle(object):
     self.a = self._max_accel_for_lane(predictions, self.lane, self.s)
 
   def realize_prep_lane_change(self, predictions, direction):
-    #print ("my PLC")
-    delta = -1
-    if direction == "R": delta = 1
+    delta = -1 # defaults to left lane change
+    if direction == "R": delta = 1 # go to right lane
     lane = self.lane + delta
-    ids_and_vehicles = [(v_id, v) for (v_id, v) in predictions.items() if v[0]['lane'] == lane]
+    # find all cars that will be in your lane
+    ids_and_vehicles = [(v_id, v) for (v_id, v) in predictions.items() \
+        if v[0]['lane'] == lane]
+    # if there are any cars in your new lane...
     if len(ids_and_vehicles) > 0:
+      # start off with min accel
       a_min = -2
 
-      vehicles = [v[1] for v in ids_and_vehicles]
-      nearest = min(ids_and_vehicles, key=lambda v: (v[1][0]['s']-self.s)*(v[1][0]['s']-self.s))
+      vehicles = [v[1] for v in ids_and_vehicles] # get vehicle prediction
+      # get nearest car based on S distance
+      nearest = min(ids_and_vehicles, \
+        key=lambda v: (v[1][0]['s']-self.s)*(v[1][0]['s']-self.s))
       target_vel = nearest[1][1]['s']-nearest[1][0]['s']
+      # diff of target speed and speed of closest car in new lane
       delta_v = target_vel - self.v
 
       predictions_copy = deepcopy(predictions)
+      # loop through all vehicles
       for v_id, v in predictions_copy.items():
         v.pop(0)
+      # get max accel for ego in current lane
       a0_max = self._max_accel_for_lane(predictions, self.lane, self.s)
+      # get max accel for new lane with predicted S
       a1_max = self._max_accel_for_lane(predictions_copy, lane, self.s+self.v+0.5*a0_max)
+      # if the gap we're entering allows for an acceptable accel
       if 2*a_min <= delta_v <= a0_max+a1_max:
+        # get predicted gap distance based on min and max accel
         s1_max = int(self.s + self.v + 0.5 * a0_max)
-        s1_min = self.s + self.v + 0.5 * a_min
-        if int(s1_min)<s1_min:
-          s1_min = int(s1_min) + 1
-        else:
-          s1_min = int(s1_min)
-        for i in range (s1_max, s1_min, -1):
+        s1_min =     self.s + self.v + 0.5 * a_min
+        # avoid a s1_min of 0 and round up to 1
+        if      int(s1_min)<s1_min: s1_min = int(s1_min) + 1
+        else:   s1_min = int(s1_min)
+        #
+        for i in range(s1_max, s1_min, -1):
+          # check if any of the cars will be within the gap of length s1_max-s1_min
           if (i not in [v[1]['s'] for v in vehicles]):
+            # some weird shorthand
             a = 2*(i - self.s - self.v)
             self.a = a
       self.a = self._max_accel_for_lane(predictions, self.lane, self.s)

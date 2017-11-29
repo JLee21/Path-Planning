@@ -156,7 +156,7 @@ vector<double> getXY(
 	double seg_y = maps_y[prev_wp]+seg_s*sin(heading);
 	double perp_heading = heading-pi()/2;
 	double x = seg_x + d*cos(perp_heading);
-	double y = seg_y + d*sin(perp_heading)
+	double y = seg_y + d*sin(perp_heading);
 	return {x,y};
 }
 
@@ -273,7 +273,7 @@ int main() {
                 // check s values greater than mine and s gap
                 if((check_car_s > car_s) && ((check_car_s-car_s) < 30) )
                 {
-                  // lower ref_vel so don't crash
+                  // lower ref_vel so we don't crash
                   too_close = true;
                   if (lane > 0)
                   {
@@ -282,7 +282,7 @@ int main() {
                 }
               }
             }
-
+            // adjust speed
             if(too_close)           { ref_vel -= 0.224; }
             else if(ref_vel < 49.5) { ref_vel += 0.224; }
 

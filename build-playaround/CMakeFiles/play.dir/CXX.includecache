@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/topher/sdc/CarND-Path-Planning-Project/src/playaround.cpp
+fstream
+-
+iostream
+-
+spline.hpp
+/Users/topher/sdc/CarND-Path-Planning-Project/src/spline.hpp
+
+/Users/topher/sdc/CarND-Path-Planning-Project/src/spline.hpp
+cstdio
+-
+cassert
+-
+vector
+-
+algorithm
+-
+
