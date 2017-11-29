@@ -772,6 +772,22 @@ lapacke_mangling.h
 
 /Users/topher/sdc/CarND-Path-Planning-Project/src/Eigen-3.3/Eigen/src/plugins/MatrixCwiseUnaryOps.h
 
+/Users/topher/sdc/CarND-Path-Planning-Project/src/ego.cpp
+ego.hpp
+/Users/topher/sdc/CarND-Path-Planning-Project/src/ego.hpp
+helper.hpp
+/Users/topher/sdc/CarND-Path-Planning-Project/src/helper.hpp
+iostream
+-
+
+/Users/topher/sdc/CarND-Path-Planning-Project/src/ego.hpp
+
+/Users/topher/sdc/CarND-Path-Planning-Project/src/helper.hpp
+iostream
+-
+math.h
+-
+
 /Users/topher/sdc/CarND-Path-Planning-Project/src/json.hpp
 algorithm
 -
@@ -829,20 +845,6 @@ vector
 -
 
 /Users/topher/sdc/CarND-Path-Planning-Project/src/main.cpp
-fstream
--
-math.h
--
-uWS/uWS.h
--
-chrono
--
-iostream
--
-thread
--
-vector
--
 Eigen-3.3/Eigen/Core
 /Users/topher/sdc/CarND-Path-Planning-Project/src/Eigen-3.3/Eigen/Core
 Eigen-3.3/Eigen/QR
@@ -851,6 +853,24 @@ json.hpp
 /Users/topher/sdc/CarND-Path-Planning-Project/src/json.hpp
 spline.hpp
 /Users/topher/sdc/CarND-Path-Planning-Project/src/spline.hpp
+chrono
+-
+fstream
+-
+iostream
+-
+math.h
+-
+thread
+-
+uWS/uWS.h
+-
+vector
+-
+ego.hpp
+/Users/topher/sdc/CarND-Path-Planning-Project/src/ego.hpp
+helper.hpp
+/Users/topher/sdc/CarND-Path-Planning-Project/src/helper.hpp
 
 /Users/topher/sdc/CarND-Path-Planning-Project/src/spline.hpp
 cstdio

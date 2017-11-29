@@ -16,36 +16,37 @@ class Road {
 public:
 
 	int update_width = 70;
-  	string ego_rep = " *** ";
-  	int ego_key = -1;
-  	int num_lanes;
-    vector<int> lane_speeds;
-    int speed_limit;
-    double density;
-    int camera_center;
-    map<int, Vehicle> vehicles;
-    int vehicles_added = 0;
+	string ego_rep = " *** ";
+	int ego_key = -1;
+	int num_lanes;
+  vector<int> lane_speeds;
+  int speed_limit;
+  double density;
+  int camera_center;
 
-    /**
-  	* Constructor
-  	*/
-  	Road(int speed_limit, double traffic_density, vector<int> lane_speeds);
+  map<int, Vehicle> vehicles;
+  int vehicles_added = 0;
 
-  	/**
-  	* Destructor
-  	*/
-  	virtual ~Road();
+  /**
+	* Constructor
+	*/
+	Road(int speed_limit, double traffic_density, vector<int> lane_speeds);
 
-  	Vehicle get_ego();
+	/**
+	* Destructor
+	*/
+	virtual ~Road();
 
-  	void populate_traffic();
+	Vehicle get_ego();
 
-  	void advance();
+	void populate_traffic();
 
-  	void display(int timestep);
+	void advance();
 
-  	void add_ego(int lane_num, int s, vector<int> config_data);
+	void display(int timestep);
 
-  	void cull();
+	void add_ego(int lane_num, int s, vector<int> config_data);
+
+	void cull();
 
 };

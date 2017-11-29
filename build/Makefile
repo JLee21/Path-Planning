@@ -123,6 +123,33 @@ run/fast:
 	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/build
 .PHONY : run/fast
 
+src/ego.o: src/ego.cpp.o
+
+.PHONY : src/ego.o
+
+# target to build an object file
+src/ego.cpp.o:
+	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/src/ego.cpp.o
+.PHONY : src/ego.cpp.o
+
+src/ego.i: src/ego.cpp.i
+
+.PHONY : src/ego.i
+
+# target to preprocess a source file
+src/ego.cpp.i:
+	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/src/ego.cpp.i
+.PHONY : src/ego.cpp.i
+
+src/ego.s: src/ego.cpp.s
+
+.PHONY : src/ego.s
+
+# target to generate assembly for a file
+src/ego.cpp.s:
+	$(MAKE) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/src/ego.cpp.s
+.PHONY : src/ego.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -159,6 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... run"
+	@echo "... src/ego.o"
+	@echo "... src/ego.i"
+	@echo "... src/ego.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

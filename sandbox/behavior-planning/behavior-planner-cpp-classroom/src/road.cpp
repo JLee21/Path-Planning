@@ -100,8 +100,7 @@ void Road::add_ego(int lane_num, int s, vector<int> config_data) {
     Vehicle ego = Vehicle(lane_num, s, this->lane_speeds[lane_num], 0);
     ego.configure(config_data);
     ego.state = "KL";
-    this->vehicles.insert(std::pair<int,Vehicle>(ego_key,ego));
-
+    this->vehicles.insert(std::pair<int, Vehicle>(ego_key, ego));
 }
 
 void Road::display(int timestep) {
