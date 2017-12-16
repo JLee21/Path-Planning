@@ -20,11 +20,6 @@ using namespace help;
 // for convenience
 using json = nlohmann::json;
 
-// For converting back and forth between radians and degrees.
-constexpr double pi() { return M_PI; }
-double deg2rad(double x) { return x * pi() / 180; }
-double rad2deg(double x) { return x * 180 / pi(); }
-
 // Checks if the SocketIO event has JSON data.
 // If there is data the JSON object in string format will be returned,
 // else the empty string "" will be returned.
@@ -38,108 +33,6 @@ string hasData(string s) {
     return s.substr(b1, b2 - b1 + 2);
   }
   return "";
-}
-
-int ClosestWaypoint(double x, double y, vector<double> maps_x,
-                    vector<double> maps_y) {
-  double closestLen = 100000; // large number
-  int closestWaypoint = 0;
-
-  for (int i = 0; i < maps_x.size(); i++) {
-    double map_x = maps_x[i];
-    double map_y = maps_y[i];
-    double dist = distance(x, y, map_x, map_y);
-    if (dist < closestLen) {
-      closestLen = dist;
-      closestWaypoint = i;
-    }
-  }
-  return closestWaypoint;
-}
-
-int NextWaypoint(double x, double y, double theta, vector<double> maps_x,
-                 vector<double> maps_y)
-// theta is the angle from ego's perp of next waypoint in front of ego
-{
-  int closestWaypoint = ClosestWaypoint(x, y, maps_x, maps_y);
-
-  double map_x = maps_x[closestWaypoint];
-  double map_y = maps_y[closestWaypoint];
-
-  double heading = atan2((map_y - y), (map_x - x));
-
-  double angle = abs(theta - heading);
-
-  if (angle > pi() / 4) {
-    closestWaypoint++;
-  }
-  return closestWaypoint;
-}
-
-// Transform from Cartesian x,y coordinates to Frenet s,d coordinates
-vector<double> getFrenet(double x, double y, double theta,
-                         vector<double> maps_x, vector<double> maps_y)
-// :theta:
-{
-  int next_wp = NextWaypoint(x, y, theta, maps_x, maps_y);
-  int prev_wp;
-  prev_wp = next_wp - 1;
-  if (next_wp == 0) {
-    prev_wp = maps_x.size() - 1;
-  }
-
-  double n_x = maps_x[next_wp] - maps_x[prev_wp];
-  double n_y = maps_y[next_wp] - maps_y[prev_wp];
-  double x_x = x - maps_x[prev_wp];
-  double x_y = y - maps_y[prev_wp];
-
-  // find the projection of x onto n
-  double proj_norm = (x_x * n_x + x_y * n_y) / (n_x * n_x + n_y * n_y);
-  double proj_x = proj_norm * n_x;
-  double proj_y = proj_norm * n_y;
-
-  double frenet_d = distance(x_x, x_y, proj_x, proj_y);
-
-  // see if d value is positive or negative by comparing it to a center point
-
-  double center_x = 1000 - maps_x[prev_wp];
-  double center_y = 2000 - maps_y[prev_wp];
-  double centerToPos = distance(center_x, center_y, x_x, x_y);
-  double centerToRef = distance(center_x, center_y, proj_x, proj_y);
-
-  if (centerToPos <= centerToRef) {
-    frenet_d *= -1;
-  }
-
-  // calculate s value
-  double frenet_s = 0;
-  for (int i = 0; i < prev_wp; i++) {
-    frenet_s += distance(maps_x[i], maps_y[i], maps_x[i + 1], maps_y[i + 1]);
-  }
-  frenet_s += distance(0, 0, proj_x, proj_y);
-  return {frenet_s, frenet_d};
-}
-
-// Transform from Frenet s,d coordinates to Cartesian x,y
-vector<double> getXY(double s, double d, vector<double> maps_s,
-                     vector<double> maps_x, vector<double> maps_y) {
-  int prev_wp = -1;
-
-  while (s > maps_s[prev_wp + 1] && (prev_wp < (int)(maps_s.size() - 1))) {
-    prev_wp++;
-  }
-
-  int wp2 = (prev_wp + 1) % maps_x.size();
-  double heading =
-      atan2((maps_y[wp2] - maps_y[prev_wp]), (maps_x[wp2] - maps_x[prev_wp]));
-  // the x,y,slong the segment
-  double seg_s = (s - maps_s[prev_wp]);
-  double seg_x = maps_x[prev_wp] + seg_s * cos(heading);
-  double seg_y = maps_y[prev_wp] + seg_s * sin(heading);
-  double perp_heading = heading - pi() / 2;
-  double x = seg_x + d * cos(perp_heading);
-  double y = seg_y + d * sin(perp_heading);
-  return {x, y};
 }
 
 int main() {
@@ -181,13 +74,13 @@ int main() {
 
   double ref_vel = 0.0; // mph
   int lane = 1;         // start in lane 1
-  Ego my_ego;
+  int lane_width = 4;   // lane_width/2 == middle of lane
+  Ego ego;
 
-  h.onMessage([&my_ego, &ref_vel, &lane, &map_waypoints_x, &map_waypoints_y,
-               &map_waypoints_s, &map_waypoints_dx,
+  h.onMessage([&lane_width, &ego, &ref_vel, &lane, &map_waypoints_x,
+               &map_waypoints_y, &map_waypoints_s, &map_waypoints_dx,
                &map_waypoints_dy](uWS::WebSocket<uWS::SERVER> ws, char *data,
                                   size_t length, uWS::OpCode opCode) {
-    my_ego.test();
     // "42" at the start of the message means there's a websocket message event.
     // The 4 signifies a websocket message
     // The 2 signifies a websocket event
@@ -231,28 +124,13 @@ int main() {
 
           bool too_close = false;
 
-          // ********************************************************
-
-          // generate predictions for all cars
-          for (int i = 0; i < sensor_fusion.size(); i++) {
-            // generate predictions for a single car
-          }
-
-          // choose next state for ego based on returned `prediction`
-
-          // realize next state for ego
-          // this should return the ref_vel and the lane
-          // since this is taken care of below
-
-          // *************************** E N D *****************************
-
           // Adaptive cruise control
           // and one single lane change
           // loop through all cars in sensor fusion
           for (int i = 0; i < sensor_fusion.size(); i++) {
             // if car is in my lane
             float d = sensor_fusion[i][6];
-            if (d < (2 + 4 * lane + 2) && d > (2 + 4 * lane - 2)) {
+            if (d < (2 + 4 * ego.lane + 2) && d > (2 + 4 * ego.lane - 2)) {
               cout << "car_id " << sensor_fusion[i][0];
               cout << " d " << d << endl;
               double vx = sensor_fusion[i][3];
@@ -264,23 +142,85 @@ int main() {
               check_car_s += ((double)prev_size * 0.02 * check_speed);
               // check s values greater than mine and s gap
               if ((check_car_s > car_s) && ((check_car_s - car_s) < 30)) {
-                // a point in the finite machine state to change lanes
-                my_ego.test();
-
-                    // lower ref_vel so we don't crash
-                    too_close = true;
-                if (lane > 0) {
-                  lane = 0;
-                }
+                // lower ref_vel so we don't crash
+                too_close = true;
               }
             }
           }
+
           // adjust speed
           if (too_close) {
             ref_vel -= 0.224;
           } else if (ref_vel < 49.5) {
             ref_vel += 0.224;
           }
+
+          // ********************************************************
+          int lane_change = ego.lane;
+
+          if (too_close) {
+            for (int i = 0; i < sensor_fusion.size(); i++) {
+
+              int enemy_id = sensor_fusion[i][0];
+              double enemy_s = sensor_fusion[i][5];
+              double enemy_d = sensor_fusion[i][6];
+
+              // try to change to the left lane for passing
+              // if enemy_d is to the left of
+              // cout << "ego_s " << car_s << " ego_d " << car_d << endl;
+              if (enemy_d < car_d) {
+                cout << endl;
+                cout << "---LEFT--- " << endl;
+                cout << "Enemy " << enemy_id << " has d of " << enemy_d << endl;
+                // check if the lane is free. if it is
+                cout << "Ego_s " << car_s << " enemy_s " << enemy_s << endl;
+                cout << (enemy_s + 10 < car_s) << " -- "
+                     << (enemy_s - 10 > car_s) << endl;
+                // if free space
+                if ((enemy_s + 0 < car_s) && (enemy_s - 0 > car_s)) {
+                  cout << "***lane_left_free for " << enemy_id
+                       << " s: " << enemy_s << " d: " << enemy_d << endl;
+                  ego.lane_left_free_count++;
+                } else {
+                  // ego.clear_lane_free_counter(0);
+                }
+              }
+              if (enemy_d > car_d) {
+                cout << "---RIGHT---" << endl;
+                cout << "Enemy " << sensor_fusion[i][0] << " has d of "
+                     << enemy_d << endl;
+                // check if car has similar s as ours
+                cout << "Ego_s " << car_s << " enemy_s " << enemy_s << endl;
+                cout << (enemy_s + 10 < car_s) << " -- "
+                     << (enemy_s - 10 > car_s) << endl;
+                if ((enemy_s + 0 < car_s) && (enemy_s - 0 > car_s)) {
+                  cout << "***lane_right_free for " << enemy_id
+                       << " s: " << enemy_s << " d: " << enemy_d << endl;
+                  ego.lane_right_free_count++;
+                } else {
+                  // ego.clear_lane_free_counter(1);
+                }
+              }
+            }
+          }
+          cout << "left_lane_count " << ego.lane_left_free_count
+               << " right_lane_count " << ego.lane_right_free_count << endl;
+          if ((ego.lane_left_free_count > 0) && (ego.lane != 0)) {
+            lane_change--;
+            ego.change_lane(lane_change);
+          }
+          if ((ego.lane_right_free_count > 0) && (ego.lane != 2)) {
+            lane_change++;
+            ego.change_lane(lane_change);
+          }
+
+          // choose next state for ego based on returned `prediction`
+
+          // realize next state for ego
+          // this should return the ref_vel and the lane
+          // since this is taken care of below
+
+          // *************************** E N D *****************************
 
           // create list of widely-spaced map_waypoints_s
           vector<double> ptsx;
@@ -289,11 +229,11 @@ int main() {
           double ref_x = car_x;
           double ref_y = car_y;
           double ref_yaw = deg2rad(car_yaw);
-          cout << " ref_x " << ref_x;
-          cout << " ref_y " << ref_y;
-          cout << " ref_yaw " << ref_yaw;
-          cout << " ref_vel " << ref_vel;
-          cout << " car_yaw " << car_yaw << endl;
+          // cout << " ref_x " << ref_x;
+          // cout << " ref_y " << ref_y;
+          // cout << " ref_yaw " << ref_yaw;
+          // cout << " ref_vel " << ref_vel;
+          // cout << " car_yaw " << car_yaw << endl;
 
           // if prev size almost empty, use the car as starting ref
           if (prev_size < 2) {
@@ -320,13 +260,13 @@ int main() {
 
           // din Frenet evenly add 30m spaced points ahead of the starting ref
           vector<double> next_wp0 =
-              getXY(car_s + 30, (2 + 4 * lane), map_waypoints_s,
+              getXY(car_s + 30, (2 + 4 * ego.lane), map_waypoints_s,
                     map_waypoints_x, map_waypoints_y);
           vector<double> next_wp1 =
-              getXY(car_s + 60, (2 + 4 * lane), map_waypoints_s,
+              getXY(car_s + 60, (2 + 4 * ego.lane), map_waypoints_s,
                     map_waypoints_x, map_waypoints_y);
           vector<double> next_wp2 =
-              getXY(car_s + 90, (2 + 4 * lane), map_waypoints_s,
+              getXY(car_s + 90, (2 + 4 * ego.lane), map_waypoints_s,
                     map_waypoints_x, map_waypoints_y);
           ptsx.push_back(next_wp0[0]);
           ptsx.push_back(next_wp1[0]);
