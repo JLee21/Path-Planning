@@ -123,16 +123,41 @@ int main() {
           }
 
           bool too_close = false;
+          vector<int> close_s;
+          vector<int> enemy_exists_right_lane;
+          vector<int> enemy_exists_left_lane;
 
           // Adaptive cruise control
           // and one single lane change
           // loop through all cars in sensor fusion
           for (int i = 0; i < sensor_fusion.size(); i++) {
+
+            // print if car has simlar S position as Ego
+            int enemy_id = (int)sensor_fusion[i][0];
+            double enemy_s = sensor_fusion[i][5];
+            double enemy_d = sensor_fusion[i][6];
+            double enemy_x = sensor_fusion[i][1];
+            double enemy_y = sensor_fusion[i][2];
+            float thresh_s = 40;
+
+            // print all enemys regardless if they're close
+            // printf("Enemy %02d -- Enemy_s %5.2f -- Enemy_d %5.2f\n", enemy_id,
+            //        enemy_s, enemy_d);
+
+            // print if enemy has close S
+
+            if (abs(enemy_s - car_s) < thresh_s) {
+              // printf("\tEnemy %02d has close S of %5.2f -- Ego S %5.2f\n",
+              //        enemy_id, enemy_s, car_s);
+              close_s.push_back(enemy_id);
+            }
+
             // if car is in my lane
-            float d = sensor_fusion[i][6];
-            if (d < (2 + 4 * ego.lane + 2) && d > (2 + 4 * ego.lane - 2)) {
-              cout << "car_id " << sensor_fusion[i][0];
-              cout << " d " << d << endl;
+            if (enemy_d < (2 + 4 * ego.lane + 2) &&
+                enemy_d > (2 + 4 * ego.lane - 2)) {
+              // printf("\t\t is in EGO lane -- Enemy_d %5.2f -- Ego_d %5.2f\n",
+              //        enemy_d, car_d);
+
               double vx = sensor_fusion[i][3];
               double vy = sensor_fusion[i][4];
               double check_speed = sqrt(vx * vx + vy * vy);
@@ -145,80 +170,90 @@ int main() {
                 // lower ref_vel so we don't crash
                 too_close = true;
               }
+              // find all other cars in other lanes and see if they are S-close
+            } else {
+
+              if (abs(enemy_s - car_s) < thresh_s) {
+                // printf("\tEnemy %02d has close S of %5.2f -- Ego S %5.2f\n",
+                //        enemy_id, enemy_s, car_s);
+                close_s.push_back(enemy_id);
+
+                // print lane enemy is in
+                // printf("\t\t is in oth lane -- Enemy_d %5.2f -- Ego_d %5.2f\n",
+                //        enemy_d, car_d);
+                // if enemy is to the immmediate left of ego
+                if (enemy_d < (lane_width * ego.lane + 2 - 2) &&
+                    enemy_d > (lane_width * ego.lane + 2 - lane_width)) {
+                  enemy_exists_left_lane.push_back(enemy_id);
+                  ego.reset_allowed_left_counter();
+                }
+                // if enemy is to the immmediate right of ego
+                if (enemy_d > (2 + lane_width * ego.lane + 2) &&
+                    enemy_d < (lane_width + lane_width * ego.lane + 2)) {
+                  enemy_exists_right_lane.push_back(enemy_id);
+                  ego.reset_allowed_right_counter();
+                }
+              }
             }
+          }
+          ego.decrement_allowed_counter();
+          ego.decrement_left_counter();
+          ego.decrement_right_counter();
+          printf("Allowed counter --> %3d\n", ego.allowed_counter);
+          printf("Allowed counter LEFT --> %3d\n", ego.allowed_left_counter);
+          printf("Allowed counter RIGHT --> %3d\n", ego.allowed_right_counter);
+
+          if (enemy_exists_left_lane.size() == 0) {
+            cout << "\n\nLEFT FREE ";
+            if (ego.allowed_left) {
+              cout << " and ALLOWED LEFT" << endl;
+            } else {
+              cout << endl;
+            }
+          } else {
+            cout << " LEFT NO" << endl;
+          }
+          if (enemy_exists_right_lane.size() == 0) {
+            cout << "RIGHT FREE";
+            if (ego.allowed_right) {
+              cout << " and ALLOWED RIGHT" << endl;
+            } else {
+              cout << endl;
+            }
+          } else {
+            cout << " RIGHT NO" << endl;
           }
 
           // adjust speed
           if (too_close) {
             ref_vel -= 0.224;
           } else if (ref_vel < 49.5) {
-            ref_vel += 0.224;
+            ref_vel += 0.424;
           }
 
           // ********************************************************
           int lane_change = ego.lane;
 
           if (too_close) {
-            for (int i = 0; i < sensor_fusion.size(); i++) {
-
-              int enemy_id = sensor_fusion[i][0];
-              double enemy_s = sensor_fusion[i][5];
-              double enemy_d = sensor_fusion[i][6];
-
-              // try to change to the left lane for passing
-              // if enemy_d is to the left of
-              // cout << "ego_s " << car_s << " ego_d " << car_d << endl;
-              if (enemy_d < car_d) {
-                cout << endl;
-                cout << "---LEFT--- " << endl;
-                cout << "Enemy " << enemy_id << " has d of " << enemy_d << endl;
-                // check if the lane is free. if it is
-                cout << "Ego_s " << car_s << " enemy_s " << enemy_s << endl;
-                cout << (enemy_s + 10 < car_s) << " -- "
-                     << (enemy_s - 10 > car_s) << endl;
-                // if free space
-                if ((enemy_s + 0 < car_s) && (enemy_s - 0 > car_s)) {
-                  cout << "***lane_left_free for " << enemy_id
-                       << " s: " << enemy_s << " d: " << enemy_d << endl;
-                  ego.lane_left_free_count++;
-                } else {
-                  // ego.clear_lane_free_counter(0);
-                }
-              }
-              if (enemy_d > car_d) {
-                cout << "---RIGHT---" << endl;
-                cout << "Enemy " << sensor_fusion[i][0] << " has d of "
-                     << enemy_d << endl;
-                // check if car has similar s as ours
-                cout << "Ego_s " << car_s << " enemy_s " << enemy_s << endl;
-                cout << (enemy_s + 10 < car_s) << " -- "
-                     << (enemy_s - 10 > car_s) << endl;
-                if ((enemy_s + 0 < car_s) && (enemy_s - 0 > car_s)) {
-                  cout << "***lane_right_free for " << enemy_id
-                       << " s: " << enemy_s << " d: " << enemy_d << endl;
-                  ego.lane_right_free_count++;
-                } else {
-                  // ego.clear_lane_free_counter(1);
-                }
-              }
+            // C H A N G E  L E F T
+            if ((ego.allowed_left) &&
+                (enemy_exists_left_lane.size() == 0) &&
+                (ego.check_counter()) &&
+                (ego.check_left_counter())) {
+              ego.change_lane(ego.lane - 1);
+              ego.reset_allowed_left_counter();
+              ref_vel += 1.24;
+            }
+            // C H A N G E  R I G H T
+            if ((ego.allowed_right) &&
+                (enemy_exists_right_lane.size() == 0) &&
+                (ego.check_counter()) &&
+                (ego.check_right_counter())) {
+              ego.change_lane(ego.lane + 1);
+              ego.reset_allowed_right_counter();
+              ref_vel += 1.24
             }
           }
-          cout << "left_lane_count " << ego.lane_left_free_count
-               << " right_lane_count " << ego.lane_right_free_count << endl;
-          if ((ego.lane_left_free_count > 0) && (ego.lane != 0)) {
-            lane_change--;
-            ego.change_lane(lane_change);
-          }
-          if ((ego.lane_right_free_count > 0) && (ego.lane != 2)) {
-            lane_change++;
-            ego.change_lane(lane_change);
-          }
-
-          // choose next state for ego based on returned `prediction`
-
-          // realize next state for ego
-          // this should return the ref_vel and the lane
-          // since this is taken care of below
 
           // *************************** E N D *****************************
 

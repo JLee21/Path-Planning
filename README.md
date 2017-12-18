@@ -53,13 +53,20 @@ the path has processed since last time.
 #### Sensor Fusion Data, a list of all other car's attributes on the same side of the road. (No Noise)
 
 ["sensor_fusion"] A 2d vector of cars and then that car's
-[car's unique ID,
-car's x position in map coordinates,
-car's y position in map coordinates,
-car's x velocity in m/s,
-car's y velocity in m/s,
-car's s position in frenet coordinates,
-car's d position in frenet coordinates.
+
+0 car's unique ID,
+
+1 car's x position in map coordinates,
+
+2 car's y position in map coordinates,
+
+3 car's x velocity in m/s,
+
+4 car's y velocity in m/s,
+
+5 car's s position in frenet coordinates,
+
+6 car's d position in frenet coordinates.
 
 ## Details
 
