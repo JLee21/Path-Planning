@@ -779,10 +779,6 @@ helper.hpp
 /Users/topher/sdc/CarND-Path-Planning-Project/src/helper.hpp
 iostream
 -
-thread
--
-chrono
--
 
 /Users/topher/sdc/CarND-Path-Planning-Project/src/ego.hpp
 

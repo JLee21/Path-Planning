@@ -1,9 +1,6 @@
 #include "ego.hpp"
 #include "helper.hpp"
 #include <iostream>
-// for blinker
-#include <thread>
-#include <chrono>
 
 using namespace std;
 
@@ -13,11 +10,9 @@ int time_counter_value = 199;
 Ego::Ego() {
   this->lane = 1; // have ego start off with lane 1
 
-  // lane_left_free_count means a accumulated total if
   this->allowed_left_counter = lane_counter;
   this->allowed_right_counter = lane_counter;
 
-  // flags so if the car is on the far right/left lanes
   this->allowed_left = true;
   this->allowed_right = true;
 
@@ -69,21 +64,21 @@ void Ego::reset_allowed_right_counter() {
   this->allowed_right_counter = lane_counter;
 }
 
-bool Ego::check_counter(){
+bool Ego::check_counter() {
   if (this->allowed_counter == 0) {
     return true;
   } else {
     return false;
   }
 }
-bool Ego::check_left_counter(){
+bool Ego::check_left_counter() {
   if (this->allowed_left_counter == 0) {
     return true;
   } else {
     return false;
   }
 }
-bool Ego::check_right_counter(){
+bool Ego::check_right_counter() {
   if (this->allowed_right_counter == 0) {
     return true;
   } else {
@@ -112,12 +107,3 @@ void Ego::decrement_right_counter() {
     this->allowed_right_counter = 0;
   }
 }
-
-// what lane are we currently in?
-// this will help know which lanes we theoretically have available
-// we have to move to a new lane...
-// default to the left lane change
-// detect if there are or will be any cars in the left lane
-// if the above is true, check the right lane
-
-int Ego::get_ego_lane(double j) { cout << "car_d " << j << endl; }

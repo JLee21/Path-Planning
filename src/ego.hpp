@@ -9,10 +9,12 @@ public:
   Ego();
   // DeConstructor
   virtual ~Ego();
-
+  // the lane number (0, 1, 2) that the ego resides in
   int lane;
+  // lane_left_free_count means a accumulated total if
   int allowed_left_counter;
   int allowed_right_counter;
+  // flags so if the car is on the far right/left lanes
   bool allowed_left;
   bool allowed_right;
   // create a counter that has to countdown to 0 before the ego can change lanes
@@ -32,11 +34,6 @@ public:
   void decrement_left_counter();
   void decrement_right_counter();
 
-  // check if any cars in the lanes next to me
-  // this will be called if i'm stuck behind a slow car
-  void car_check();
-
-  int get_ego_lane(double j);
 };
 
 #endif
