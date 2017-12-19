@@ -1,6 +1,35 @@
 # CarND-Path-Planning-Project
 Self-Driving Car Engineer Nanodegree Program
 
+## On Generating Paths for the Self-Driving Car
+
+### The Environment and Setup
+
+Frenet Coordinates
+Way Points
+`Future Way Points` or `FWP` are a list of X and Y global map coordinates that is given to the simulator. The ego car in the simulator is internally programmed to drive through each of these waypoints at sequentially through time. This project focuses on the path the car needs to plan rather than or in addition to how the car shall execute its steering, throttle, and braking controls.
+
+`Previous Path Points` or `PPP` is a list of X and Y global map coordinates previously given to the simulator.
+
+The ego is given a list of all previous points passed to the planner multiple times a second. 
+
+### Connecting Path Points from Previous Path Points
+
+We begin constructing the `FWP` list by taking X and Y points from the `PPP` that are not yet executed within the simulator and using these points as the beginning or our `FWP`. This allows for a continuos transition from `PPP` to `FWP`.
+
+### Extrapolating New Path Points 
+
+Using Frenet Coordinates we add 30m evenly spaced points along the S Frenet coordinate. 
+At this point we have constructed a rough-looking line of points ahead of the ego car composed of X and Y coordinates. 
+These points consists of some of the points gathered from `PPP` and some points incrementally extraploated 30m ahead in the S direction.
+With these points established ahead of the vehicle, if the car were to execute these points, that is, sequentially drive over these points the car would most likely incur dramatic changes in velocity and even extreme changes in acceleration -- imagine a car driving the shortest possible path between each point as that would invoke a zig-zag driving behaviour). To remendy these problems and produce a comfortable ride a C++ Spline Helper file is utilized in order to construct a smooth function that intersects all the points.
+
+[C++ Spline Helper File](https://github.com/g-truc/glm/blob/master/glm/gtx/spline.hpp)
+
+The spline creates a 'smooth' transistion between each point by constructing piece-wise polynomials that intersect each point while matching the first derivative for the end and begining of each polynomial.
+
+
+
 ### Simulator.
 You can download the Term3 Simulator which contains the Path Planning Project from the [releases tab (https://github.com/udacity/self-driving-car-sim/releases).
 
