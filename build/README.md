@@ -1,3 +1,5 @@
 cmake ..
+
 make
+
 ./run
