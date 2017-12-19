@@ -5,30 +5,37 @@ Self-Driving Car Engineer Nanodegree Program
 
 ### The Environment and Setup
 
-Frenet Coordinates
-Way Points
-`Future Way Points` or `FWP` are a list of X and Y global map coordinates that is given to the simulator. The ego car in the simulator is internally programmed to drive through each of these waypoints at sequentially through time. This project focuses on the path the car needs to plan rather than or in addition to how the car shall execute its steering, throttle, and braking controls.
+`Future Way Points` or `FWP` is a list of X and Y global map coordinates that is given to the simulator. The ego car in the simulator is internally programmed to drive through each of these waypoints sequentially through time. This project focuses on the path the car needs to plan rather than or in addition to how the car shall execute its steering, throttle, and braking controls. Taken from Udacity's description of the ego car's 'perfect controller':
 
-`Previous Path Points` or `PPP` is a list of X and Y global map coordinates previously given to the simulator.
+```
+"The car uses a perfect controller and will visit every (x,y) point it receives in the list every .02 seconds. The units for the (x,y) points are in meters and the spacing of the points determines the speed of the car."
+```
 
-The ego is given a list of all previous points passed to the planner multiple times a second. 
+`Previous Path Points` or `PPP` is a list of X and Y global map coordinates previously given to the simulator but not yet executed by the car.
+
+The ego is given this list of all previous points passed to the planner multiple times a second. 
 
 ### Connecting Path Points from Previous Path Points
 
-We begin constructing the `FWP` list by taking X and Y points from the `PPP` that are not yet executed within the simulator and using these points as the beginning or our `FWP`. This allows for a continuos transition from `PPP` to `FWP`.
+We begin constructing the `FWP` list by taking X and Y points from the `PPP` that are not yet executed within the simulator and using these points as the beginning or our `FWP`. This allows for a continuous transition from `PPP` to `FWP`.
 
 ### Extrapolating New Path Points 
 
-Using Frenet Coordinates we add 30m evenly spaced points along the S Frenet coordinate. 
+Using Frenet Coordinates we add three 30m evenly spaced points along the S Frenet coordinate.
+The spacing was chosen empirically since a projected length for the car to drive that is too short may induce sudden changed in steering and velocity while a long projected length may quickly become inconsequential within the ever-changing highway environment.
 At this point we have constructed a rough-looking line of points ahead of the ego car composed of X and Y coordinates. 
-These points consists of some of the points gathered from `PPP` and some points incrementally extraploated 30m ahead in the S direction.
-With these points established ahead of the vehicle, if the car were to execute these points, that is, sequentially drive over these points the car would most likely incur dramatic changes in velocity and even extreme changes in acceleration -- imagine a car driving the shortest possible path between each point as that would invoke a zig-zag driving behaviour). To remendy these problems and produce a comfortable ride a C++ Spline Helper file is utilized in order to construct a smooth function that intersects all the points.
+These points consists of some of the points gathered from `PPP` and some points incrementally extrapolated 30m ahead in the S direction.
+With these points established ahead of the vehicle, if the car were to execute these points, that is, sequentially drive over these points the car would most likely incur dramatic changes in velocity and even extreme changes in acceleration -- imagine a car driving the shortest possible path between each point as that would invoke a zig-zag driving behavior). To remedy these problems and produce a comfortable ride a C++ Spline Helper file is utilized in order to construct a smooth function that intersects all the points.
 
 [C++ Spline Helper File](https://github.com/g-truc/glm/blob/master/glm/gtx/spline.hpp)
 
-The spline creates a 'smooth' transistion between each point by constructing piece-wise polynomials that intersect each point while matching the first derivative for the end and begining of each polynomial.
+The spline creates a 'smooth' transition between each point by constructing piece-wise polynomials that intersect each point while matching the first derivative for the end and beginning of each polynomial.
 
+We now have established a spline function that smoothly connects all the points a total of 90 meters ahead of the ego car. Next, we add points along this spline so the car knows how to pace itself and thus execute an allowed velocity and acceleration. To do this, we need to 'break-up' the spline so the car travels the desired speed. This portion is executed in `src/main.cpp`, `lines 316 - 322`. The points that break-up the spline are added to the `FWP` as shown in `src/main.cpp`, `lines 324 - 340`.
 
+Finally, the points that now exists in `FWP` are sent to the simulator for the ego car to follow.
+
+---
 
 ### Simulator.
 You can download the Term3 Simulator which contains the Path Planning Project from the [releases tab (https://github.com/udacity/self-driving-car-sim/releases).
