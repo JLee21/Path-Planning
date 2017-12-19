@@ -1,6 +1,15 @@
 # CarND-Path-Planning-Project
 Self-Driving Car Engineer Nanodegree Program
 
+## How to Build and Run
+
+```
+cd build
+cmake ..
+make 
+./run
+```
+
 ## On Generating Paths for the Self-Driving Car
 
 ### The Environment and Setup
