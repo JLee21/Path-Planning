@@ -27,7 +27,7 @@ Ego::Ego() {
 Ego::~Ego(){};
 
 void Ego::change_lane(int lane) {
-  cout << "Ego Changing Lanes " << lane << endl;
+  cout << "\n\n*********\n\nEGO CHANGE\n\n********\n " << lane << endl;
   reset_allowed_counter();
   // 0 = left
   // 1 = middle

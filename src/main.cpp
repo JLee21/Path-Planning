@@ -130,6 +130,7 @@ int main() {
           // Adaptive cruise control
           // and one single lane change
           // loop through all cars in sensor fusion
+          printf("\nSensor Fusion Size: %2d\n\n", sensor_fusion.size());
           for (int i = 0; i < sensor_fusion.size(); i++) {
 
             // print if car has simlar S position as Ego
@@ -138,58 +139,106 @@ int main() {
             double enemy_d = sensor_fusion[i][6];
             double enemy_x = sensor_fusion[i][1];
             double enemy_y = sensor_fusion[i][2];
-            float thresh_s = 40;
+            float thresh_s = 35;
+            float thresh_s_forw = 12;
+            int min_vel_to_change = 40;
 
             // print all enemys regardless if they're close
             // printf("Enemy %02d -- Enemy_s %5.2f -- Enemy_d %5.2f\n", enemy_id,
             //        enemy_s, enemy_d);
 
-            // print if enemy has close S
-
-            if (abs(enemy_s - car_s) < thresh_s) {
-              // printf("\tEnemy %02d has close S of %5.2f -- Ego S %5.2f\n",
-              //        enemy_id, enemy_s, car_s);
-              close_s.push_back(enemy_id);
-            }
+            // if enemy is outside ego lane
+            // if (enemy_d > (2 + lane_width * ego.lane + 2) &&
+            //     enemy_d < (2 + lane_width * ego.lane - 2)) {
+            //   if ((enemy_s - car_s) < thresh_s_forw) {
+            //     // printf("\tEnemy %02d has close S of %5.2f -- Ego S %5.2f\n",
+            //     //        enemy_id, enemy_s, car_s);
+            //     close_s.push_back(enemy_id);
+            //     enemy_exists_left_lane.push_back(enemy_id);
+            //   }
+            //   if ((car_s - enemy_s) < thresh_s) {
+            //     // printf("\tEnemy %02d has close S of %5.2f -- Ego S %5.2f\n",
+            //     //        enemy_id, enemy_s, car_s);
+            //     close_s.push_back(enemy_id);
+            //   }
+            // }
 
             // if car is in my lane
-            if (enemy_d < (2 + 4 * ego.lane + 2) &&
-                enemy_d > (2 + 4 * ego.lane - 2)) {
-              // printf("\t\t is in EGO lane -- Enemy_d %5.2f -- Ego_d %5.2f\n",
-              //        enemy_d, car_d);
+            if (
+                (enemy_d < (2 + lane_width * ego.lane + 2.5)) &&
+                (enemy_d > (2 + lane_width * ego.lane - 1.5))
+               )
+            {
 
               double vx = sensor_fusion[i][3];
               double vy = sensor_fusion[i][4];
               double check_speed = sqrt(vx * vx + vy * vy);
               double check_car_s = sensor_fusion[i][5];
-              // project the s value out in time b/c we're using prev_path
-              // points
+              // project the s value out in time b/c we're using prev_path points
               check_car_s += ((double)prev_size * 0.02 * check_speed);
               // check s values greater than mine and s gap
               if ((check_car_s > car_s) && ((check_car_s - car_s) < 30)) {
-                // lower ref_vel so we don't crash
                 too_close = true;
               }
               // find all other cars in other lanes and see if they are S-close
             } else {
+              // if ((abs(enemy_s - car_s) < thresh_s_forw) ||
+              //    (abs(car_s - enemy_s) < thresh_s)) {
+              //
+              //      if (enemy_d < (lane_width * ego.lane + 2 - 2) &&
+              //          enemy_d > (lane_width * ego.lane + 2 - lane_width)) {
+              //        enemy_exists_left_lane.push_back(enemy_id);
+              //        ego.reset_allowed_left_counter();
+              //      }
+              //      // if enemy is to the immmediate right of ego
+              //      if (enemy_d > (2 + lane_width * ego.lane + 2) &&
+              //          enemy_d < (lane_width + lane_width * ego.lane + 2)) {
+              //        enemy_exists_right_lane.push_back(enemy_id);
+              //        enemy_exists_right_lane.push_back(enemy_id);
+              //        ego.reset_allowed_right_counter();
+              //      }
+              //    }
 
-              if (abs(enemy_s - car_s) < thresh_s) {
+              double diff_s = enemy_s - car_s;
+              if (
+                   (abs(enemy_s - car_s) < thresh_s_forw) ||
+                   (abs(car_s - enemy_s) < thresh_s)
+                 )
+              {
                 // printf("\tEnemy %02d has close S of %5.2f -- Ego S %5.2f\n",
                 //        enemy_id, enemy_s, car_s);
-                close_s.push_back(enemy_id);
 
                 // print lane enemy is in
                 // printf("\t\t is in oth lane -- Enemy_d %5.2f -- Ego_d %5.2f\n",
                 //        enemy_d, car_d);
                 // if enemy is to the immmediate left of ego
-                if (enemy_d < (lane_width * ego.lane + 2 - 2) &&
-                    enemy_d > (lane_width * ego.lane + 2 - lane_width)) {
+                //
+                // enemy_d < (4 * 2 + 2 - 2)
+                // enemy_d < 8
+                // &&
+                // enemy_d > (4 * 2 + 2 - 4 -1.5)
+                // enemy_d > 4.5
+                //
+                //
+                //
+                if (
+                    (enemy_d < (lane_width * ego.lane + 2 - 2)) &&
+                    (enemy_d > (lane_width * ego.lane + 2 - lane_width - 1.5))
+                   )
+                {
+                  printf("  Enemy  Left  lane -- Enemy_d %5.2f -- Ego_d %5.2f -- Diff_s %+6.2f\n",
+                         enemy_d, car_d, diff_s);
                   enemy_exists_left_lane.push_back(enemy_id);
                   ego.reset_allowed_left_counter();
                 }
                 // if enemy is to the immmediate right of ego
-                if (enemy_d > (2 + lane_width * ego.lane + 2) &&
-                    enemy_d < (lane_width + lane_width * ego.lane + 2)) {
+                if (
+                    (enemy_d > (2 + lane_width * ego.lane + 2)) &&
+                    (enemy_d < (lane_width + lane_width * ego.lane + 2.4))
+                   )
+                {
+                  printf("  Enemy  Right lane -- Enemy_d %5.2f -- Ego_d %5.2f -- Diff_s %+6.2f\n",
+                         enemy_d, car_d, diff_s);
                   enemy_exists_right_lane.push_back(enemy_id);
                   ego.reset_allowed_right_counter();
                 }
@@ -197,38 +246,39 @@ int main() {
             }
           }
           ego.decrement_allowed_counter();
-          ego.decrement_left_counter();
-          ego.decrement_right_counter();
           printf("Allowed counter --> %3d\n", ego.allowed_counter);
           printf("Allowed counter LEFT --> %3d\n", ego.allowed_left_counter);
           printf("Allowed counter RIGHT --> %3d\n", ego.allowed_right_counter);
 
+          // D E B U G
           if (enemy_exists_left_lane.size() == 0) {
-            cout << "\n\nLEFT FREE ";
+            cout << "EFT FREE ";
             if (ego.allowed_left) {
               cout << " and ALLOWED LEFT" << endl;
+              ego.decrement_left_counter();
             } else {
-              cout << endl;
+              cout << " ego in far LEFT lane" << endl;
             }
           } else {
-            cout << " LEFT NO" << endl;
+            cout << "LEFT NO with #" << enemy_exists_left_lane.size() << endl;
           }
           if (enemy_exists_right_lane.size() == 0) {
             cout << "RIGHT FREE";
             if (ego.allowed_right) {
               cout << " and ALLOWED RIGHT" << endl;
+              ego.decrement_right_counter();
             } else {
-              cout << endl;
+              cout << " ego in far RIGHT lane" << endl;
             }
           } else {
-            cout << " RIGHT NO" << endl;
+            cout << "RIGHT NO with #" << enemy_exists_right_lane.size() << endl;
           }
 
           // adjust speed
           if (too_close) {
             ref_vel -= 0.224;
-          } else if (ref_vel < 49.5) {
-            ref_vel += 0.424;
+          } else if (ref_vel < 48.3) {
+            ref_vel += 0.3;
           }
 
           // ********************************************************
@@ -239,21 +289,23 @@ int main() {
             if ((ego.allowed_left) &&
                 (enemy_exists_left_lane.size() == 0) &&
                 (ego.check_counter()) &&
-                (ego.check_left_counter())) {
+                (ego.check_left_counter()) &&
+                (ref_vel > min_vel_to_change)) {
               ego.change_lane(ego.lane - 1);
               ego.reset_allowed_left_counter();
-              ref_vel += 1.24;
             }
             // C H A N G E  R I G H T
             if ((ego.allowed_right) &&
                 (enemy_exists_right_lane.size() == 0) &&
                 (ego.check_counter()) &&
-                (ego.check_right_counter())) {
+                (ego.check_right_counter()) &&
+                (ref_vel > min_vel_to_change)) {
               ego.change_lane(ego.lane + 1);
               ego.reset_allowed_right_counter();
-              ref_vel += 1.24
             }
           }
+          enemy_exists_left_lane.clear();
+          enemy_exists_right_lane.clear();
 
           // *************************** E N D *****************************
 
